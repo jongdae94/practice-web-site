@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.0.1/redux.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src = "colors.js"></script>
   <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-CHSN4QX15P"></script>
 <script>
@@ -15,22 +18,92 @@
 </head>
 <body>
   <h1><a href ="index.html">WEB</a></h1>
+
+  <input id="night_day" type="button" value="night" onclick="
+  nightDayHandler(this);
+  ">
+
 <ol>
   <li><a href ="1.html">HTML</a></li>
   <li><a href ="2.html">CSS</a></li>
   <li><a href ="3.html">JavaScript</a></li>
+  <li><a href ="4.html">TEST</a></li>
 </ol>
-<h2>CSS란 무엇인가?</h2>
-<p>
-Hi, I’m Ryu Minhyo.
-</p><p>
-I’m just a human and I like to be forthright and down to earth. Also I love to be calm and relaxed.
-</p><p>
-I love hiphop and football. I can feel free and humorous things through them.
-</p><p>
-We are all human beings with different characteristics. Each person has a different idea, different tastes, habits, goals, interests, and what they do.
-</p><p>
-I hope we can accept it and love ourselves as we are. I expect we can treat other people with that mind.
-</p>
+<h2>ㅁㅁㅁㅁㅁㅁㅁ</h2>
+
+<style>
+  .container{
+    border: 5px solid black;
+    padding: 10px;
+  }
+</style>
+
+<div id="red"></div>
+<div id="green"></div>
+<div id="blue"></div>
+
+<script>
+function reducer(state, action) {
+  console.log(state,action);
+  if(state === undefined) {
+    return {color : 'pink'}
+  }
+  var newState;
+  if(action.type === 'CHANGE_COLOR') {
+    newState = Object.assign({}, state, {color : action.color});
+  }
+  return newState;
+}
+
+var store = Redux.createStore(reducer);
+console.log(store.getState());
+ function red(){
+  var state = store.getState();
+    document.querySelector('#red').innerHTML = `
+        <div class="container" id="component_red" style="background-color:${state.color}">
+            <h1>red</h1>
+            <input type="button" value="fire" onclick="
+              store.dispatch({type:'CHANGE_COLOR' , color:'red'});
+            ">
+        </div>
+    `;
+}
+store.subscribe(red);
+red();
+
+function green(){
+  var state = store.getState();
+    document.querySelector('#green').innerHTML = `
+        <div class="container" id="component_green" style="background-color:${state.color}">
+            <h1>green</h1>
+            <input type="button" value="fire" onclick="
+              store.dispatch({type:'CHANGE_COLOR' , color:'green'});
+            ">
+        </div>
+    `;
+}
+store.subscribe(green);
+green();
+
+function blue(){
+  var state = store.getState();
+    document.querySelector('#blue').innerHTML = `
+        <div class="container" id="component_blue" style="background-color:${state.color}">
+            <h1>blue</h1>
+            <input type="button" value="fire" onclick="
+              store.dispatch({type:'CHANGE_COLOR' , color:'blue'});
+            ">
+        </div>
+    `;
+}
+store.subscribe(blue);
+blue();
+
+
+</script>
+
+
+
+
 </body>
 </html>

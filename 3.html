@@ -1,46 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <script>
-
-  var Links = {
-    setColor : function (color) {
-    var alist = document.querySelectorAll('a');
-      var i=0;
-      for(i=0; i<alist.length; i++){
-        alist[i].style.color = color;
-      }
-    }
-  }
-
-  var Body = {
-    setColor : function(color) {
-    document.querySelector('body').style.color = color;
-  },
-
-    setBackgorundColor : function(color) {
-    document.querySelector('body').style.backgroundColor = color;
-  }
-  }
-
-
-  function nightDayHandler(self) {
-      var target = document.querySelector('body');
-    if(self.value === 'night'){
-      Body.setBackgorundColor('black');
-      Body.setColor('white');
-      self.value = 'day';
-
-      Links.setColor('powderblue');
-    } else {
-      Body.setBackgorundColor('white');
-      Body.setColor('black');
-      self.value = 'night';
-
-      Links.setColor('blue');
-  }
-}
-  </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src = "colors.js"></script>
   <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-CHSN4QX15P"></script>
 <script>
@@ -64,6 +26,7 @@
   <li><a href ="1.html">HTML</a></li>
   <li><a href ="2.html">CSS</a></li>
   <li><a href ="3.html">JavaScript</a></li>
+  <li><a href ="4.html">TEST</a></li>
 </ol>
 <h2>JavaScript란 무엇인가?</h2>
 <p>
