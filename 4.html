@@ -146,10 +146,10 @@ function reducer(state, action) {
         var newContents = [];
         var i;
         for(i=0; i<state.contents.length; i++) {
-          if(state.selcted_id !== state.contents[i].id){
+          if(state.selected_id !== state.contents[i].id){
                 newContents.push(
-                    state.contents[i]
-                );
+                state.contents[i]
+          );
         }
        
         newState = Object.assign({},state, {
